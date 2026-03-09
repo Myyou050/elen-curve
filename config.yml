@@ -1,0 +1,121 @@
+# ============================================================
+#  ELEN CURVE — Configuração do Painel Admin (Decap CMS)
+#  Arquivo: admin/config.yml
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main   # branch do seu repositório no GitHub
+
+# Onde as imagens enviadas pelo admin serão salvas
+media_folder: "images/products"
+public_folder: "/images/products"
+
+# Ativa o preview ao vivo no painel
+local_backend: false
+
+collections:
+
+  # ──────────────────────────────────────────
+  # 1. PRODUTOS
+  # ──────────────────────────────────────────
+  - name: "produtos"
+    label: "🛍 Produtos"
+    label_singular: "Produto"
+    folder: "_data/produtos"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: nome
+    summary: "{{nome}} — R$ {{preco}}"
+    fields:
+      - { label: "Nome do produto",        name: nome,       widget: string,   hint: "Ex: Vestido Midi Plissado" }
+      - { label: "Foto principal",          name: foto,       widget: image,    hint: "Envie a foto do produto (JPG ou PNG)" }
+      - { label: "Categoria",              name: categoria,  widget: select,
+          options: ["vestidos","blusas","conjuntos","calcas","acessorios","promocoes"] }
+      - { label: "Preço atual (R$)",        name: preco,      widget: number,   value_type: float, hint: "Ex: 199.90" }
+      - { label: "Preço original / riscado", name: preco_original, widget: number, value_type: float, hint: "Deixe igual ao preço atual se não houver desconto" }
+      - { label: "Parcelamento",           name: parcelamento, widget: string, hint: "Ex: ou 3x de R$ 66,63 sem juros" }
+      - { label: "Selo / Badge",           name: badge,      widget: select,   required: false,
+          options: ["","Novidade","Mais Vendido","-10%","-20%","-30%","-40%","-50%"] }
+      - { label: "Avaliação (estrelas)",   name: estrelas,   widget: number,   value_type: int, min: 1, max: 5, default: 5 }
+      - { label: "Número de avaliações",   name: avaliacoes, widget: number,   value_type: int, default: 0 }
+      - { label: "Descrição curta",        name: descricao,  widget: text,     required: false }
+      - { label: "Tamanhos disponíveis",   name: tamanhos,   widget: select,   multiple: true,
+          options: ["PP","P","M","G","GG","Único"], default: ["P","M","G"] }
+      - { label: "Destaque na vitrine?",   name: destaque,   widget: boolean,  default: true }
+      - { label: "Ativo / Visível?",       name: ativo,      widget: boolean,  default: true }
+
+  # ──────────────────────────────────────────
+  # 2. BANNERS DO CARROSSEL
+  # ──────────────────────────────────────────
+  - name: "banners"
+    label: "🖼 Banners"
+    label_singular: "Banner"
+    folder: "_data/banners"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: titulo
+    fields:
+      - { label: "Título principal",       name: titulo,     widget: string,   hint: "Ex: Coleção Outono/Inverno" }
+      - { label: "Subtítulo",              name: subtitulo,  widget: string,   required: false }
+      - { label: "Etiqueta (label)",       name: label,      widget: string,   required: false, hint: "Ex: Nova Coleção" }
+      - { label: "Imagem de fundo",        name: imagem,     widget: image }
+      - { label: "Texto do botão 1",       name: cta1_texto, widget: string,   default: "Compre Agora" }
+      - { label: "Link do botão 1",        name: cta1_link,  widget: string,   default: "#produtos" }
+      - { label: "Texto do botão 2",       name: cta2_texto, widget: string,   required: false, default: "Ver Coleção" }
+      - { label: "Link do botão 2",        name: cta2_link,  widget: string,   required: false, default: "#categorias" }
+      - { label: "Badge (ex: Novo, -50%)", name: badge,      widget: string,   required: false }
+      - { label: "Cor da badge",           name: badge_cor,  widget: select,   required: false,
+          options: ["rose","promo","gold"] }
+      - { label: "Ordem de exibição",      name: ordem,      widget: number,   value_type: int, default: 1 }
+      - { label: "Ativo?",                 name: ativo,      widget: boolean,  default: true }
+
+  # ──────────────────────────────────────────
+  # 3. CONFIGURAÇÕES GERAIS DA LOJA
+  # ──────────────────────────────────────────
+  - name: "configuracoes"
+    label: "⚙️ Configurações da Loja"
+    files:
+      - name: "geral"
+        label: "Dados Gerais"
+        file: "_data/configuracoes.json"
+        fields:
+          - { label: "Nome da loja",         name: nome_loja,    widget: string,  default: "Elen Curve" }
+          - { label: "Slogan",               name: slogan,       widget: string,  default: "Moda Feminina" }
+          - { label: "Texto do top bar",     name: topbar,       widget: string,  default: "Frete grátis acima de R$ 199 ✦ Parcelamento em até 12x" }
+          - { label: "Frete grátis acima de (R$)", name: frete_gratis, widget: number, value_type: float, default: 199 }
+          - { label: "WhatsApp (com DDD)",   name: whatsapp,     widget: string,  required: false, hint: "Ex: 5511999999999" }
+          - { label: "Instagram",            name: instagram,    widget: string,  required: false, hint: "Ex: @elencurve" }
+          - { label: "E-mail de contato",    name: email,        widget: string,  required: false }
+          - label: "Cores da loja"
+            name: cores
+            widget: object
+            fields:
+              - { label: "Cor principal (rosa)",  name: principal, widget: string, default: "#c8705a" }
+              - { label: "Cor escura",             name: escura,    widget: string, default: "#a85a45" }
+              - { label: "Cor dourada",            name: dourada,   widget: string, default: "#c9a96e" }
+
+  # ──────────────────────────────────────────
+  # 4. PÁGINAS DE TEXTO
+  # ──────────────────────────────────────────
+  - name: "paginas"
+    label: "📄 Páginas de Texto"
+    files:
+      - name: "sobre"
+        label: "Sobre Nós"
+        file: "_data/sobre.json"
+        fields:
+          - { label: "Título",    name: titulo,  widget: string }
+          - { label: "Conteúdo", name: conteudo, widget: markdown }
+      - name: "politica"
+        label: "Política de Privacidade"
+        file: "_data/politica.json"
+        fields:
+          - { label: "Título",    name: titulo,  widget: string }
+          - { label: "Conteúdo", name: conteudo, widget: markdown }
+      - name: "trocas"
+        label: "Trocas e Devoluções"
+        file: "_data/trocas.json"
+        fields:
+          - { label: "Título",    name: titulo,  widget: string }
+          - { label: "Conteúdo", name: conteudo, widget: markdown }

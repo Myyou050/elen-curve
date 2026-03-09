@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elen Curve | Moda Feminina Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- TOP BAR — texto vindo de configuracoes.json -->
+  <div class="top-bar">
+    <div class="top-bar-inner" id="topBarText">
+      ✦ Frete grátis acima de R$ 199 ✦ Parcelamento em até 12x ✦ Troca e devolução grátis
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="#" class="logo">
+        <div class="logo-mark">E</div>
+        <div class="logo-text">
+          <span class="logo-name" id="logoNome">Elen Curve</span>
+          <span class="logo-tagline" id="logoSlogan">MODA FEMININA</span>
+        </div>
+      </a>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar produtos..." id="searchInput" />
+        <button class="search-btn" aria-label="Buscar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+      </div>
+      <div class="header-icons">
+        <button class="icon-btn" title="Minha Conta">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Conta</span>
+        </button>
+        <button class="icon-btn" title="Favoritos" id="favBtn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span>Favoritos</span>
+          <span class="badge" id="favCount" style="display:none">0</span>
+        </button>
+        <button class="icon-btn cart-btn" title="Carrinho" id="cartBtn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span>Sacola</span>
+          <span class="badge" id="cartCount" style="display:none">0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#novidades" class="nav-link active">✨ Novidades</a></li>
+        <li><a href="#produtos" class="nav-link" data-filter="vestidos">Vestidos</a></li>
+        <li><a href="#produtos" class="nav-link" data-filter="blusas">Blusas</a></li>
+        <li><a href="#produtos" class="nav-link" data-filter="conjuntos">Conjuntos</a></li>
+        <li><a href="#produtos" class="nav-link" data-filter="calcas">Calças</a></li>
+        <li><a href="#produtos" class="nav-link" data-filter="acessorios">Acessórios</a></li>
+        <li><a href="#produtos" class="nav-link promo-link" data-filter="promocoes">🔥 Promoções</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- BANNER CAROUSEL — carregado de banners.json -->
+  <section class="banner-section">
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- Inserido via JS -->
+      </div>
+      <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">&#8249;</button>
+      <button class="carousel-btn next" id="nextBtn" aria-label="Próximo">&#8250;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      <div><strong>Frete Grátis</strong><span id="freteValor">Acima de R$ 199</span></div>
+    </div>
+    <div class="trust-item">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+      <div><strong>Troca Grátis</strong><span>Em até 30 dias</span></div>
+    </div>
+    <div class="trust-item">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <div><strong>Compra Segura</strong><span>100% protegida</span></div>
+    </div>
+    <div class="trust-item">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div><strong>Pagamento Seguro</strong><span>Mercado Pago</span></div>
+    </div>
+    <div class="trust-item">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.24A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.1A16 16 0 0 0 16 16.09l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div><strong>Atendimento</strong><span>Seg–Sáb 9h–18h</span></div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="section categories-section" id="categorias">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Categorias em Destaque</h2>
+        <p class="section-sub">Explore nossa coleção completa</p>
+      </div>
+      <div class="categories-grid">
+        <a href="#produtos" class="category-card" data-filter="vestidos">
+          <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&q=80');"></div>
+          <div class="cat-overlay"></div>
+          <div class="cat-info"><span class="cat-name">Vestidos</span><span class="cat-count" id="cnt-vestidos">0 peças</span></div>
+        </a>
+        <a href="#produtos" class="category-card" data-filter="blusas">
+          <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&q=80');"></div>
+          <div class="cat-overlay"></div>
+          <div class="cat-info"><span class="cat-name">Blusas</span><span class="cat-count" id="cnt-blusas">0 peças</span></div>
+        </a>
+        <a href="#produtos" class="category-card" data-filter="conjuntos">
+          <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80');"></div>
+          <div class="cat-overlay"></div>
+          <div class="cat-info"><span class="cat-name">Conjuntos</span><span class="cat-count" id="cnt-conjuntos">0 peças</span></div>
+        </a>
+        <a href="#produtos" class="category-card" data-filter="calcas">
+          <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&q=80');"></div>
+          <div class="cat-overlay"></div>
+          <div class="cat-info"><span class="cat-name">Calças</span><span class="cat-count" id="cnt-calcas">0 peças</span></div>
+        </a>
+        <a href="#produtos" class="category-card" data-filter="acessorios">
+          <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400&q=80');"></div>
+          <div class="cat-overlay"></div>
+          <div class="cat-info"><span class="cat-name">Acessórios</span><span class="cat-count" id="cnt-acessorios">0 peças</span></div>
+        </a>
+        <a href="#produtos" class="category-card promo-cat" data-filter="promocoes">
+          <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400&q=80');"></div>
+          <div class="cat-overlay"></div>
+          <div class="cat-info"><span class="cat-name">🔥 Promoções</span><span class="cat-count">Até 50% OFF</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVIDADES BANNER -->
+  <section class="section novidades-banner" id="novidades">
+    <div class="container">
+      <div class="novidades-inner">
+        <div class="novidades-text">
+          <span class="eyebrow">Acabou de chegar</span>
+          <h2>Novidades<br><em>da Semana</em></h2>
+          <p>As peças mais desejadas da temporada chegaram! Seja a primeira a garantir os lançamentos exclusivos da Elen Curve.</p>
+          <a href="#produtos" class="btn-primary" data-filter-trigger="novidades">Ver Lançamentos</a>
+        </div>
+        <div class="novidades-images">
+          <div class="nov-img nov-img-1" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500&q=80');"></div>
+          <div class="nov-img nov-img-2" style="background-image: url('https://images.unsplash.com/photo-1554568218-0f1715e72254?w=500&q=80');"></div>
+          <div class="nov-img nov-img-3" style="background-image: url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80');"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS — renderizados dinamicamente do JSON -->
+  <section class="section products-section" id="produtos">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nossa Vitrine</h2>
+        <p class="section-sub">Peças selecionadas com muito carinho para você</p>
+      </div>
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-filter="all">Todos</button>
+        <button class="filter-tab" data-filter="novidades">Novidades</button>
+        <button class="filter-tab" data-filter="vestidos">Vestidos</button>
+        <button class="filter-tab" data-filter="blusas">Blusas</button>
+        <button class="filter-tab" data-filter="conjuntos">Conjuntos</button>
+        <button class="filter-tab" data-filter="calcas">Calças</button>
+        <button class="filter-tab" data-filter="acessorios">Acessórios</button>
+        <button class="filter-tab" data-filter="promocoes">🔥 Promoções</button>
+      </div>
+      <!-- Cards inseridos dinamicamente pelo script.js -->
+      <div class="products-grid" id="productsGrid">
+        <div class="loading-spinner">Carregando produtos...</div>
+      </div>
+      <div class="load-more-wrap">
+        <button class="btn-load-more" id="loadMoreBtn">Carregar Mais Produtos</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMO BANNERS -->
+  <section class="promo-banner-section" id="promocoes">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Promoções em Destaque</h2>
+        <p class="section-sub">Aproveite enquanto durar</p>
+      </div>
+      <div class="promo-banner-grid">
+        <div class="promo-banner-card big" style="background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80');">
+          <div class="promo-card-overlay"></div>
+          <div class="promo-card-content">
+            <span class="promo-label">Liquidação</span>
+            <h3>Vestidos com<br>até 50% OFF</h3>
+            <a href="#produtos" class="btn-primary-sm" data-filter-trigger="vestidos">Ver ofertas</a>
+          </div>
+        </div>
+        <div class="promo-banner-col">
+          <div class="promo-banner-card" style="background-image: url('https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&q=80');">
+            <div class="promo-card-overlay"></div>
+            <div class="promo-card-content">
+              <span class="promo-label">Novidades</span>
+              <h3>Blusas a partir<br>de R$ 79,90</h3>
+              <a href="#produtos" class="btn-primary-sm" data-filter-trigger="blusas">Ver ofertas</a>
+            </div>
+          </div>
+          <div class="promo-banner-card" style="background-image: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80');">
+            <div class="promo-card-overlay"></div>
+            <div class="promo-card-content">
+              <span class="promo-label">Destaque</span>
+              <h3>Conjuntos com<br>30% de desconto</h3>
+              <a href="#produtos" class="btn-primary-sm" data-filter-trigger="conjuntos">Ver ofertas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="nl-text">
+          <h2>Receba as novidades em primeira mão</h2>
+          <p>Cadastre-se e ganhe <strong>10% OFF</strong> na sua primeira compra</p>
+        </div>
+        <div class="nl-form">
+          <input type="email" placeholder="Seu melhor e-mail" id="newsletterEmail" />
+          <button class="btn-nl" id="nlBtn">Quero meu desconto</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <div class="footer-logo">
+            <div class="logo-mark">E</div>
+            <div class="logo-text">
+              <span class="logo-name">Elen Curve</span>
+              <span class="logo-tagline">MODA FEMININA</span>
+            </div>
+          </div>
+          <p>Moda feminina que celebra a sua essência. Peças exclusivas com qualidade premium para mulheres que amam se vestir bem.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" id="linkInstagram" title="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link" title="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-link" id="linkWhatsapp" title="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Blog de Moda</a></li>
+            <li><a href="#">Trabalhe Conosco</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Como Comprar</a></li>
+            <li><a href="#">Prazo de Entrega</a></li>
+            <li><a href="#">Trocas e Devoluções</a></li>
+            <li><a id="emailContato" href="#">contato@elencurve.com.br</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Formas de Pagamento</h4>
+          <div class="payment-methods">
+            <div class="payment-badge pix-badge" title="PIX">
+              <svg width="16" height="16" viewBox="0 0 512 512" fill="currentColor"><path d="M242.4 292.5C247.8 287.1 255.1 284.4 262.5 284.4C269.9 284.4 277.1 287.1 282.5 292.5L395.1 405.1C418.7 428.7 456.1 428.7 479.6 405.1C503.2 381.5 503.2 344.1 479.6 320.5L366.1 207.9C353.7 195.5 353.7 175.1 366.1 162.7L479.6 50.09C503.2 26.52 503.2-10.93 479.6-34.49C456.1-58.06 418.7-58.06 395.1-34.49L282.5 78.09C277.1 83.5 269.9 86.2 262.5 86.2C255.1 86.2 247.8 83.5 242.4 78.09L129.9-34.49C106.3-58.06 68.8-58.06 45.24-34.49C21.68-10.93 21.68 26.52 45.24 50.09L157.9 162.7C170.3 175.1 170.3 195.5 157.9 207.9L45.24 320.5C21.68 344.1 21.68 381.5 45.24 405.1C68.8 428.7 106.3 428.7 129.9 405.1L242.4 292.5z"/></svg>
+              <span>PIX</span>
+            </div>
+            <div class="payment-badge"><span class="card-label visa">VISA</span></div>
+            <div class="payment-badge">
+              <svg width="30" height="20" viewBox="0 0 38 24"><circle cx="15" cy="12" r="10" fill="#EB001B"/><circle cx="23" cy="12" r="10" fill="#F79E1B" opacity="0.9"/><path d="M19 4.9a10 10 0 0 1 0 14.2A10 10 0 0 1 19 4.9z" fill="#FF5F00"/></svg>
+            </div>
+            <div class="payment-badge"><span class="card-label elo">ELO</span></div>
+            <div class="payment-badge"><span class="card-label amex">AMEX</span></div>
+            <div class="payment-badge"><span class="card-label hiper">HIPER</span></div>
+          </div>
+          <div class="mp-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Pagamentos via <strong>Mercado Pago</strong>
+          </div>
+          <div class="security-badges">
+            <div class="sec-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> SSL Seguro</div>
+            <div class="sec-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Site Blindado</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 <strong id="footerNome">Elen Curve</strong> — Moda Feminina. Todos os direitos reservados.</p>
+        <p>CNPJ: 00.000.000/0001-00 | Elen Curve Comércio de Roupas Femininas Ltda.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- QUICK VIEW MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>🛍 Minha Sacola</h3>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total"><span>Total</span><span id="cartTotal">R$ 0,00</span></div>
+      <button class="btn-checkout">Finalizar Compra</button>
+      <p class="cart-secure"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Compra 100% segura via Mercado Pago</p>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

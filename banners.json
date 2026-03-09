@@ -1,0 +1,44 @@
+[
+  {
+    "titulo": "Outono / Inverno",
+    "subtitulo": "Elegância que aquece a alma",
+    "label": "Nova Coleção",
+    "imagem": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1920&q=80",
+    "cta1_texto": "Compre Agora",
+    "cta1_link": "#novidades",
+    "cta2_texto": "Ver Coleção",
+    "cta2_link": "#categorias",
+    "badge": "Novo",
+    "badge_cor": "rose",
+    "ordem": 1,
+    "ativo": true
+  },
+  {
+    "titulo": "Até 50% OFF em tudo",
+    "subtitulo": "Peças selecionadas com preços imperdíveis",
+    "label": "Promoção Especial",
+    "imagem": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1920&q=80",
+    "cta1_texto": "Aproveite",
+    "cta1_link": "#promocoes",
+    "cta2_texto": "Ver Ofertas",
+    "cta2_link": "#produtos",
+    "badge": "-50%",
+    "badge_cor": "promo",
+    "ordem": 2,
+    "ativo": true
+  },
+  {
+    "titulo": "Vestidos Exclusivos",
+    "subtitulo": "Do casual ao sofisticado, encontre seu look",
+    "label": "Estilo Premium",
+    "imagem": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1920&q=80",
+    "cta1_texto": "Ver Vestidos",
+    "cta1_link": "#produtos",
+    "cta2_texto": "Lançamentos",
+    "cta2_link": "#novidades",
+    "badge": "Premium",
+    "badge_cor": "gold",
+    "ordem": 3,
+    "ativo": true
+  }
+]

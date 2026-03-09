@@ -1,0 +1,14 @@
+{
+  "nome_loja": "Elen Curve",
+  "slogan": "Moda Feminina",
+  "topbar": "Frete grátis acima de R$ 199 ✦ Parcelamento em até 12x ✦ Troca e devolução grátis",
+  "frete_gratis": 199,
+  "whatsapp": "5511999999999",
+  "instagram": "@elencurve",
+  "email": "contato@elencurve.com.br",
+  "cores": {
+    "principal": "#c8705a",
+    "escura": "#a85a45",
+    "dourada": "#c9a96e"
+  }
+}
