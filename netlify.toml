@@ -1,26 +1,6 @@
 # ============================================================
 #  ELEN CURVE — Configuração do Netlify
-#  Arquivo: netlify.toml (fica na raiz do projeto)
 # ============================================================
 
 [build]
-  publish = "."        # publica a pasta raiz (onde está o index.html)
-
-# Ativa o Netlify Identity para login no painel /admin
-[[plugins]]
-  package = "@netlify/plugin-gatsby"   # não usado, mas mantemos o bloco de plugins
-
-# Redireciona /admin para o painel
-[[redirects]]
-  from = "/admin"
-  to   = "/admin/index.html"
-  status = 200
-
-# Headers de segurança
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
+  publish = "."
